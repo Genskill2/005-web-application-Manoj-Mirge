@@ -88,11 +88,11 @@ def edit(pid):
         description = request.form.get('description')
         sold = request.form.get('sold')
        # pidi=int(pid)
-        cursor.execute("Update pet SET description=? WHERE id=? ;",(description,pid))
+        cursor.execute("Update pet SET description=? WHERE id=? ;",([description],[pid]))
         # TODO Handle sold
         if sold=="1":
           sold_date=datetime.date.today()
-          cursor.execute("insert into pet (sold) values (?) where id=? ;",[sold_date])
+          cursor.execute("insert into pet (sold) values (?) where id=? ;",([sold_date],[pid]))
         #else:
         #  cursor.execute("update pet set sold=null where id=?;",[pid])
            
