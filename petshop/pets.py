@@ -91,6 +91,9 @@ def edit(pid):
         if sold=="sold":
           sold_date=datetime.date.today()
           cursor.execute("insert into pet (sold) values (?);",[sold_date])
+        else:
+          cursor.execute("update pet set sold=null where id=?;",[pid])
+           
           
         return redirect(url_for("pets.pet_info", pid=pid), 302)
         
