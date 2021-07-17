@@ -88,7 +88,7 @@ def edit(pid):
         description = request.form.get('description')
         sold = request.form.get("sold")
         pidi=int(pid)
-        cursor.execute("update pet set description=? where id=?"([description],[pidi]))
+        cursor.execute("update pet set description=? where id=?",([description],[pidi]))
         # TODO Handle sold
         if sold=="sold":
           sold_date=datetime.date.today()
